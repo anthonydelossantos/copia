@@ -6,7 +6,7 @@ int main( )
     int computadoras[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int condicion = 0;
     int cedulasEstudiantes[20] = {89541843,81027954,91341234,89541843,81028954,91141234,89541343,81027954,91341232,89541843,41341234,39585063,810271424,41341234,89540933,81037954,91341234,89543543,81297954,39611559}; 
-    char nombresEstudiantes[20][12] = {"Raul","Pedro","Maria","Luis","Luisa","Ernesto","Moises","Lucas","Jubencio","Christopher","Samuel","Jesus","Jordan","Romulo","Gabriel","Virgilio","Eugenio","Laura","Monica","Cristel"};
+    char nombresEstudiantes[20][12] = {"Raul","Pedro","Ashley","Luis","Luisa","Ernesto","Moises","Lucas","Jubencio","Christopher","Samuel","Jesus","Jordan","Romulo","Gabriel","Virgilio","Eugenio","Laura","Monica","Cristel"};
     int registroEstudiante[20];
     while(condicion < 1) {
         int opcion;
@@ -112,8 +112,6 @@ int main( )
                     printf(" Veces que ha utilizado el Laboratorio:%d", registroEstudiante[i]);
                     printf("\n");
                 }
-            
-                break;
 
             break;
 
