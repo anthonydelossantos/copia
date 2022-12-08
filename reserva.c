@@ -7,7 +7,12 @@ int main( )
     int condicion = 0;
     int cedulasEstudiantes[20] = {89541843,81027954,91341234,89541843,81028954,91141234,89541343,81027954,91341232,89541843,41341234,39585063,810271424,41341234,89540933,81037954,91341234,89543543,81297954,39611559}; 
     char nombresEstudiantes[20][12] = {"Raul","Pedro","Ashley","Luis","Luisa","Ernesto","Moises","Lucas","Jubencio","Christopher","Samuel","Jesus","Jordan","Romulo","Gabriel","Virgilio","Eugenio","Laura","Monica","Cristel"};
-    int registroEstudiante[20];
+    int registroEstudiante[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int count = 0;
+    int cedulaEstudiante;
+    int reserva;
+    int i,t;
+    int pcID;
     while(condicion < 1) {
         int opcion;
         printf("\nMenu: \n1) Ver los puestos de las computadoras ocupadas y disponibles.\n2) Reservar una computadora\n3) Salir del laboratorio\n4) Registro del uso del laboratorio\n5) Lista de estudiantes Autorizados\n6) Salir del sistema\n");
@@ -15,10 +20,10 @@ int main( )
         scanf("%d", &opcion);
         switch (opcion){
             case 1:
-            int count = 0;
+            count = 0;
             // vemos los puestos ocupados y disponibles
             printf("Computadoras disponibles: \n");
-            for (int i = 0; i < 20; i++)
+            for ( i = 0; i < 20; i++)
             {
                if (computadoras[i] == 0)
                {
@@ -35,7 +40,7 @@ int main( )
                }
             count = 0;
             printf("Computadoras reservadas: \n");
-            for (int t = 0; t < 20; t++)
+            for (t = 0; t < 20; t++)
             {
                 if (computadoras[t] == 1)
                 {
@@ -55,11 +60,10 @@ int main( )
 
             case 2:
             //reservar una computadora
-            int cedulaEstudiante;
-            int reserva;
+            
             printf("Introduzca la cedula del estudiante -> ");
             scanf("%d",&cedulaEstudiante);
-            for (int i = 0; i < 20; i++)
+            for (i = 0; i < 20; i++)
             {
                 if (cedulaEstudiante == cedulasEstudiantes[i] )
                 {
@@ -80,10 +84,9 @@ int main( )
 
             case 3:
             //habilitar computadora
-            int pcID;
             printf("Introduzca computadora a habilitar -> ");
             scanf("%d",&pcID);
-            for (int i = 0; i < 20; i++)
+            for (i = 0; i < 20; i++)
             {
                 if (i == pcID )
                 {
@@ -106,7 +109,7 @@ int main( )
             break;
 
             case 4:
-            for (int i = 0; i < 20; i++)
+            for (i = 0; i < 20; i++)
                 {
                     printf("Nombre:%s ", nombresEstudiantes[i]); 
                     printf(" Veces que ha utilizado el Laboratorio:%d", registroEstudiante[i]);
@@ -117,7 +120,7 @@ int main( )
 
             case 5:
             //muestra lista de estudiantes en el sistema
-                for (int i = 0; i < 20; i++)
+                for (i = 0; i < 20; i++)
                 {
                     printf("Nombre:%s ", nombresEstudiantes[i]); 
                     printf(" Cedula:%d", cedulasEstudiantes[i]);
