@@ -4,8 +4,9 @@ Grupo 1SF113
 */
 /*Reservación de computadoras para el laboratorio de programación*/
 
+#include<stdlib.h>
 #include<stdio.h>
-#include<conio.h>
+
 
 void habilitarPC(int pcID, int computadoras[],int i){
     printf("Introduzca computadora a habilitar -> ");
@@ -107,6 +108,7 @@ int main( )
     int pcID;
     char limpiar;
     while(condicion < 1) {
+    	
         int opcion;
         printf("\nMenu: \n1) Ver los puestos de las computadoras ocupadas y disponibles.\n2) Reservar una computadora\n3) Salir del laboratorio\n4) Registro del uso del laboratorio\n5) Lista de estudiantes Autorizados\n6) Salir del sistema\n");
         printf("-> ");
@@ -153,18 +155,22 @@ int main( )
             default:
             printf("ERROR: Usted ha introducido un valor que no pertenece a este menu.");
         }
-        printf("Desea limpiar pantalla?.S/N \n");
+        printf("limpiar pantalla: S/N ->");
         scanf("%s",&limpiar);
-        if (limpiar== 's')
-        {
-            clrscr();
-        }
+        while(limpiar != "s" || limpiar != "n"){
+        	printf("limpiar pantalla: S/N ->");
+        	scanf("%s",&limpiar);
+		}
+        if(limpiar == 's'){
+        	system("cls");
+        	getchar();
+		}
+		
+       
         
 
     }
     
-    
-    return 0;
 
     
 }
