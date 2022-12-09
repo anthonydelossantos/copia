@@ -157,14 +157,8 @@ int main( )
         }
         printf("limpiar pantalla: S/N ->");
         scanf("%s",&limpiar);
-        while(limpiar != "s" || limpiar != "n"){
-        	printf("limpiar pantalla: S/N ->");
-        	scanf("%s",&limpiar);
-		}
-        if(limpiar == 's'){
-        	system("cls");
-        	getchar();
-		}
+        system("cls");
+      
 		
        
         
