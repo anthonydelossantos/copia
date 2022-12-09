@@ -6,25 +6,30 @@ Inicio programa
     entero condicion = 0;
     entero cedulasEstudiantes[20] = {89541843,81027954,91341234,89541843,81028954,91141234,89541343,81027954,91341232,89541843,41341234,39585063,810271424,41341234,89540933,81037954,91341234,89543543,81297954,39611559}; 
     caracter nombresEstudiantes[20][12] = {"Raul","Pedro","Ashley","Luis","Luisa","Ernesto","Moises","Lucas","Jubencio","Christopher","Samuel","Jesus","Jordan","Romulo","Gabriel","Virgilio","Eugenio","Laura","Monica","Cristel"};
-    entero registroEstudiante[20];
-    
+    entero registroEstudiante[20]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};;
+    entero count = 0;
+    entero cedulaEstudiante;
+    entero reserva;
+    entero i,t;
+    entero pcID;
+     entero pcID;
     mientras(condicion < 1) hacer
-        entero opcion=0;
-        imprimir("\nMenu: \n1) Ver los puestos de las computadoras ocupadas y disponibles.\n2) Reservar una computadora\n3) Salir del laboratorio\n4) Registro del uso del laboratorio\n5) Lista de estudiantes Autorizados\n6) Salir del sistema\n");
+        opcion=0;
+        imprimir("Menu: 1) Ver los puestos de las computadoras ocupadas y disponibles.2) Reservar una computadora3) Salir del laboratorio4) Registro del uso del laboratorio5) Lista de estudiantes Autorizados6) Salir del sistema");
         imprimir("-> ");
         leer(opcion);
 
         //switch
         segun_sea(opcion)
             caso 1:
-            entero count = 0;
+            count = 0;
             // vemos los puestos ocupados y disponibles
-            imprimir("Computadoras disponibles: \n");
-            Para (entero i = 0; i < 20; i++)
+            imprimir("Computadoras disponibles: ");
+            Para (i = 0; i < 20; i++)
             {
                si (computadoras[i] == 0) entonces
                {
-                imprimir("PC%d \n", i);
+                imprimir("PC%d ", i);
                 count +=1;
 
                 
@@ -33,15 +38,15 @@ Inicio programa
             }
             si (count == 0) entonces
                {
-                imprimir("0\n");
+                imprimir("0");
                }
             count = 0;
-            imprimir("Computadoras reservadas: \n");
+            imprimir("Computadoras reservadas: ");
             Para (entero t = 0; t < 20; t++)
             {
                 si (computadoras[t] == 1)
                 {
-                    imprimir("PC%d \n", t);
+                    imprimir("PC%d ", t);
                     count +=1;
                 }
                 
@@ -49,24 +54,22 @@ Inicio programa
             si (count == 0)
                {
                 
-                imprimir("0\n");
+                imprimir("0");
                }
             
             
             salir;
             caso 2:
             //reservar una computadora
-            entero cedulaEstudiante;
-            entero reserva;
-            imprimir("Introduzca la cedula del estudiante -> ");
+            imprimir("enteroroduzca la cedula del estudiante -> ");
             leer("%d",&cedulaEstudiante);
-            Para (entero i = 0; i < 20; i++)
+            Para (i = 0; i < 20; i++)
             {
                 si (cedulaEstudiante == cedulasEstudiantes[i] ) entonces
                 {
-                  imprimir("Introduzca el numero de la PC a reservar (ejemplo: 1 para PC1) ->  ");
+                  imprimir("enteroroduzca el numero de la PC a reservar (ejemplo: 1 para PC1) ->  ");
                   leer("%d", &reserva);
-                  imprimir("PC%d reservada exitosamente!\n",reserva);
+                  imprimir("PC%d reservada exitosamente!",reserva);
                   computadoras[reserva] = 1;
                   registroEstudiante[i]+=1;
                   salir;
@@ -77,10 +80,9 @@ Inicio programa
             salir;
             caso 3:
             //habilitar computadora
-            entero pcID;
-            imprimir("Introduzca computadora a habilitar -> ");
+            imprimir("enteroroduzca computadora a habilitar -> ");
             leer("%d",&pcID);
-            for (int i = 0; i < 20; i++)
+            for (i = 0; i < 20; i++)
             {
                 si (i == pcID ) entonces
                 {
@@ -91,7 +93,7 @@ Inicio programa
                         salir;
                     }
                     de lo contrario{
-                        imprimir("ERROR: La PC%d ya se encuentra disponible\n", pcID);
+                        imprimir("ERROR: La PC%d ya se encuentra disponible", pcID);
                         salir;
                     }
                     
@@ -101,21 +103,21 @@ Inicio programa
             
             salir;
             caso 4:
-            Para (int i = 0; i < 20; i++)
+            Para ( i = 0; i < 20; i++)
                 {
                     imprimir("Nombre:%s ", nombresEstudiantes[i]); 
                     imprimir(" Veces que ha utilizado el Laboratorio:%d", registroEstudiante[i]);
-                    imprimir("\n");
+                    imprimir("");
                 }
 
             salir;
             caso 5:
             //muestra lista de estudiantes en el sistema
-                Para (int i = 0; i < 20; i++)
+                Para (i = 0; i < 20; i++)
                 {
                     imprimir("Nombre:%s ", nombresEstudiantes[i]); 
                     imprimir(" Cedula:%d", cedulasEstudiantes[i]);
-                    imprimir("\n");
+                    imprimir("");
                 }
             salir;
             caso 6:
